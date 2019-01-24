@@ -12,7 +12,7 @@ WINDOWS_LIBS_x86 =
 # -std=c++11 c++ default
 # -w suppresses all warnings 
 # -g GDB Support
-COMPILER_FLAGS = -std=c++11 -w -g -Wall
+COMPILER_FLAGS = -std=c++14 -w -g -Wall
 
 #LINKER_FLAGS specifies the libraries we're linking against 
 WINDOWS_LINK_x86 =
