@@ -30,13 +30,16 @@ void Director::update(void){
 }
 
 void Director::render(void){
+    this->p_video->clearWindow();
     this->m_scenes[this->m_current_scene]->onRender();
+    this->p_video->updateWindow();
 }
 
 bool Director::isExitTime(void){
-    return this->m_scenes[this->m_current_scene]->isExit();
+    return (this->m_scenes[this->m_current_scene]->isExit() || this->p_video->isExitTime());
 }
 
 Director::Director(void){
+    this->p_video = Video::getSingleton();
     this->m_current_scene = -1;
 }
