@@ -1,25 +1,40 @@
-#OBJS specifies which files to compile as part of the project 
-OBJS = 	./source/*.cpp
+CC = gcc
+CXX = g++
 
-#CC specifies which compiler we're using 
-CC = g++
+INCLUDES = -I$(project_inc)
+LIBRARIES = -L$(glfw_lib_x86)
 
-#INCLUDE_PATHS specifies the additional include paths we'll need
-WINDOWS_INCLUDE =
-WINDOWS_LIBS_x86 =
+project_inc = C:/Users/Genesis/Desktop/insande-in-the-brain-repo/include
 
-#COMPILER_FLAGS specifies the additional compilation options we're using 
-# -std=c++11 c++ default
-# -w suppresses all warnings 
-# -g GDB Support
-COMPILER_FLAGS = -std=c++14 -w -g -Wall
+glfw = C:/Users/Genesis/Desktop/insande-in-the-brain-repo
+glfw_inc = $(glfw)/include
+glfw_lib_x86 = $(glfw)/lib/x86/debug
 
-#LINKER_FLAGS specifies the libraries we're linking against 
-WINDOWS_LINK_x86 =
+glad = C:/Users/Genesis/Desktop/insande-in-the-brain-repo
+glad_inc = $(glad)/include
 
-#OBJ_NAME specifies the name of our exectuable 
-WINDOWS_OUTPUT = ./build/main.exe
+CFLAGS = -Wall -g $(INCLUDES)
+CXXFLAGS = -std=c++14 -Wall -g $(INCLUDES)
+LDFLAGS = $(LIBRARIES) -lglfw3 -lopengl32 -lglu32 -lgdi32
 
-#This is the target that compiles our executable 
-w_x86 : $(OBJS) 
-	$(CC) $(OBJS) $(WINDOWS_INCLUDE) $(WINDOWS_LIBS_x86) $(COMPILER_FLAGS) $(WINDOWS_LINK_x86) -o $(WINDOWS_OUTPUT)
+TARGET = ./build/x86/debug/main.exe
+
+cpp_files = ./source/main.cpp
+cpp_files += ./source/Director.cpp
+cpp_files += ./source/Demo.cpp
+cpp_files += ./source/GameObject.cpp
+cpp_files += ./source/Scene.cpp
+cpp_files += ./source/Transform.cpp
+
+objects = $(cpp_files:.cpp=.o) ./source/glad.o
+headers =
+
+w_x86: $(TARGET)
+
+$(TARGET): $(objects) 
+	$(CXX) -o $@ $^ $(LDFLAGS)
+	make clean
+
+.PHONY : clean
+clean :
+	-rm $(objects)
