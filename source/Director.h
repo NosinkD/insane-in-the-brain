@@ -1,9 +1,11 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 
-#include "includes_std.h"
+#include "Internal.h"
 
 #include "Scene.h"
+
+#include "Video.h"
 
 class Director {
 
@@ -29,6 +31,8 @@ private:
 
     int m_current_scene;
     std::vector<Scene*> m_scenes;
+
+    Video * p_video;
 
 };
 
