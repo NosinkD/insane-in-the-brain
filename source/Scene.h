@@ -3,6 +3,8 @@
 
 #include "Internal.h"
 
+#include "Input.h"
+
 class Scene {
 
 public:
@@ -24,6 +26,8 @@ protected:
     virtual void render(void);
 
     virtual void input(void);
+
+    Input * m_input;
 
 private:
 

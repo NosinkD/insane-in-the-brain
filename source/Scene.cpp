@@ -1,10 +1,12 @@
 #include "Scene.h"
 
 Scene::Scene(void){
+    this->m_input = Input::getSingleton();
     this->m_exit = false;
 }
 
 Scene::~Scene(void){
+    this->m_input = nullptr;
 }
 
 void Scene::onLoad(void){
