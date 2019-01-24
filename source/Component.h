@@ -1,11 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include <string>
-#include <functional>
-#include <vector>
-#include <memory>
-#include <algorithm>
+#include "includes_std.h"
 
 #define TO_STRING(x) #x
 
@@ -27,7 +23,7 @@ class Component {
 public:
 
     virtual ~Component(void) = default;
-    Component(){};
+    Component(void){};
 
     static const std::size_t Type;
     virtual bool IsClassType(const std::size_t classType) const { return classType == Type; }
