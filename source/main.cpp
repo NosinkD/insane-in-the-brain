@@ -16,6 +16,8 @@ int main(){
 
     init();
 
+    sVideo->createWindow("Test", 800, 600);
+
     sDirector->addScene(new Demo());
 
     sDirector->load(DEMO_SCENE);
@@ -29,7 +31,7 @@ int main(){
     }
 
     quit();
-    
+
     std::cin.clear();
     std::cin.sync();
     std::cin.get();
