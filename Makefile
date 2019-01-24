@@ -27,6 +27,7 @@ cpp_files += ./source/Scene.cpp
 cpp_files += ./source/Transform.cpp
 cpp_files += ./source/SpriteRenderer.cpp
 cpp_files += ./source/Video.cpp
+cpp_files += ./source/Input.cpp
 
 objects = $(cpp_files:.cpp=.o) ./source/glad.o
 headers =
