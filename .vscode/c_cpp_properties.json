@@ -16,7 +16,8 @@
                 "C:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\tr1",
                 "C:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32",
                 "C:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32\\bits",
-                "${workspaceFolder}\\source"
+                "${workspaceFolder}\\source",
+                "${workspaceFolder}\\include"
             ],
             "defines": [
                 "_DEBUG",
