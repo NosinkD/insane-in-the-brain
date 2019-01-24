@@ -1,6 +1,6 @@
 #include "Demo.h"
 
-Demo::Demo(void){
+Demo::Demo(void):Scene(){
 
 }
 
@@ -21,5 +21,7 @@ void Demo::render(void){
 }
 
 void Demo::input(void){
-
+    if(this->m_input->isPressed(keyboard_esc)){
+        exit();
+    }
 }
