@@ -20,6 +20,8 @@ public:
     void clearWindow(void);
     void updateWindow(void);
 
+    GLFWwindow * getWindow(void);
+
 protected:
 
 private:

@@ -45,6 +45,10 @@ void Video::updateWindow(void){
     glfwSwapBuffers(this->m_window);
 }
 
+GLFWwindow * Video::getWindow(void){
+    return this->m_window;
+}
+
 Video::Video(void){
     if(glfwInit()){
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPEN_GL_MAJOR_VERSION);
