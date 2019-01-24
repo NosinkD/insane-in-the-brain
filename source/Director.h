@@ -6,6 +6,7 @@
 #include "Scene.h"
 
 #include "Video.h"
+#include "Input.h"
 
 class Director {
 
@@ -19,7 +20,7 @@ public:
     void load(int index);
     void update(void);
     void render(void);
-
+    
     bool isExitTime(void);
 
 protected:
@@ -33,6 +34,7 @@ private:
     std::vector<Scene*> m_scenes;
 
     Video * p_video;
+    Input * p_input;
 
 };
 
