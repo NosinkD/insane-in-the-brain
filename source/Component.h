@@ -1,7 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "includes_std.h"
+#include "Internal.h"
 
 #define TO_STRING(x) #x
 

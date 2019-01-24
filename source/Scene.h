@@ -1,7 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "includes_std.h"
+#include "Internal.h"
 
 class Scene {
 

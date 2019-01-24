@@ -1,7 +1,7 @@
 #ifndef SPRITE_RENDERER_H
 #define SPRITE_RENDERER_H
 
-#include "includes_std.h"
+#include "Internal.h"
 
 #include "Component.h"
 
