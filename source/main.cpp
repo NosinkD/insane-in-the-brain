@@ -1,16 +1,20 @@
 
 #include "Director.h"
+#include "Video.h"
 
 #include "Demo.h"
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #define DEMO_SCENE 0
+
+Video * sVideo;
+Director * sDirector;
+
+void init(void);
+void quit(void);
 
 int main(){
 
-    Director * sDirector = Director::getSingleton();
+    init();
 
     sDirector->addScene(new Demo());
 
@@ -24,11 +28,21 @@ int main(){
 
     }
 
-    delete sDirector;
-
+    quit();
+    
     std::cin.clear();
     std::cin.sync();
     std::cin.get();
 
     return 0;
+}
+
+void init(void){
+    sVideo = Video::getSingleton();
+    sDirector = Director::getSingleton();
+}
+
+void quit(void){
+    delete sDirector;
+    delete sVideo;
 }
