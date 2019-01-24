@@ -4,7 +4,7 @@ OBJS = 	./source/*.cpp
 #CC specifies which compiler we're using 
 CC = g++
 
-#INCLUDE_PATHS specifies the additional include paths we'll need 
+#INCLUDE_PATHS specifies the additional include paths we'll need
 WINDOWS_INCLUDE =
 WINDOWS_LIBS_x86 =
 
