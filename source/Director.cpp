@@ -26,6 +26,7 @@ void Director::load(int index){
 }
 
 void Director::update(void){
+    this->p_input->pollEvents();
     this->m_scenes[this->m_current_scene]->onUpdate();
 }
 
@@ -41,5 +42,6 @@ bool Director::isExitTime(void){
 
 Director::Director(void){
     this->p_video = Video::getSingleton();
+    this->p_input = Input::getSingleton();
     this->m_current_scene = -1;
 }
