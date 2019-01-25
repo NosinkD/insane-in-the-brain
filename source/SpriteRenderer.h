@@ -28,7 +28,12 @@ private:
     float vertices[9];
     unsigned int VBO;
     unsigned int vertexShader;
+    unsigned int fragmentShader;
+    unsigned int shaderProgram;
     const char * vertexShaderSource;
+    const char * fragmentShaderSource;
+    int  success;
+    char infoLog[512];
 
     File * m_file;
 
