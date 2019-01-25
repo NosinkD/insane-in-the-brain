@@ -4,6 +4,7 @@
 #include "Internal.h"
 
 #include "Transform.h"
+#include "SpriteRenderer.h"
 
 class GameObject {
 
