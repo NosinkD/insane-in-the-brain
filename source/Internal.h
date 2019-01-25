@@ -14,5 +14,6 @@
 #include <memory>
 #include <algorithm>
 #include <windows.h>
+#include <fstream>
 
 #endif // INTERNAL_H
