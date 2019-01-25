@@ -10,7 +10,8 @@ public:
     ~File(void);
     static File * getSingleton(void);
 
-    const char * readAllText(const char * path);
+    std::string readShader(const char * path);
+    std::string readAllText(const char * path);
 
 protected:
 
