@@ -2,6 +2,8 @@
 
 #include "Scene.h"
 
+#include "GameObject.h"
+
 class Demo : public Scene {
 
 public:
@@ -18,5 +20,7 @@ protected:
     void input(void);
 
 private:
+
+    GameObject obj;
 
 };

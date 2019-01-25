@@ -1,7 +1,7 @@
 #include "Demo.h"
 
 Demo::Demo(void):Scene(){
-
+    obj.addComponent<SpriteRenderer>();
 }
 
 Demo::~Demo(void){
