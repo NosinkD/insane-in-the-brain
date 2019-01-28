@@ -1,8 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Internal.h"
 
+#include "Internal.h"
 #include "Input.h"
 
 class Scene {
