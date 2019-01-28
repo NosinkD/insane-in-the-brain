@@ -14,8 +14,8 @@ Director * sDirector;
 void init(void);
 void quit(void);
 
-int main(){
-
+int main(int argc, char * argv[]) {
+    int argc = 0; argv = nullptr;
     init();
 
     sDirector->addScene(new Demo());
