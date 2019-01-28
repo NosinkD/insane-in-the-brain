@@ -6,7 +6,11 @@
 #include "Video.h"
 
 enum keyboard {
-    keyboard_esc = GLFW_KEY_ESCAPE
+    keyboard_esc = GLFW_KEY_ESCAPE,
+    keyboard_a = GLFW_KEY_A,
+    keyboard_s = GLFW_KEY_S,
+    keyboard_d = GLFW_KEY_D,
+    keyboard_w = GLFW_KEY_W
 };
 
 class Input {
