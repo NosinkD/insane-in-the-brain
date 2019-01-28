@@ -37,7 +37,7 @@ void Director::render(void){
 }
 
 bool Director::isExitTime(void){
-    return (this->m_scenes[this->m_current_scene]->isExit() || this->p_video->isExitTime());
+    return (this->m_scenes[this->m_current_scene]->isExit() || this->p_input->isExitTime());
 }
 
 Director::Director(void){
