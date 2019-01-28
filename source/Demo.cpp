@@ -17,7 +17,7 @@ void Demo::update(void){
 }
 
 void Demo::render(void){
-
+    obj.getComponent<SpriteRenderer>().render();
 }
 
 void Demo::input(void){
