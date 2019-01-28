@@ -3,7 +3,9 @@
 Video * Video::m_singleton = nullptr;
 
 Video::~Video(void){
-
+    SDL_DestroyWindow(this->m_window);
+    this->m_context = nullptr;
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
 
 Video * Video::getSingleton(void){
@@ -13,51 +15,51 @@ Video * Video::getSingleton(void){
     return m_singleton;
 }
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height){
-    glViewport(0, 0, width, height);
-}
-
-bool Video::createWindow(const char * title, int width, int height){
-    this->m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-    if(this->m_window){
-        glfwMakeContextCurrent(this->m_window);
-        glfwSetFramebufferSizeCallback(this->m_window, framebuffer_size_callback);
-        if (gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-            return true;
+bool Video::createWindow(const char * title, int width, int height, screen_flag flags){
+    this->m_window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | flags);
+    if (this->m_window != nullptr) {
+        SDL_GetWindowSize(this->m_window, &this->m_screen_width, &this->m_screen_height);
+        this->m_context = SDL_GL_CreateContext(this->m_window);
+        if (this->m_context != nullptr) {
+            glewExperimental = GL_TRUE;
+            if(glewInit() == 0){
+                if (SDL_GL_SetSwapInterval(1) < 0){
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
-        // ERROR - glad unable to initalize.
+    } else {
+        return false;
     }
-    // ERROR - glfwCreateWindows fails
-    glfwTerminate();
-    return false;
-}
-
-bool Video::isExitTime(void){
-    return glfwWindowShouldClose(this->m_window);
+    return true;
 }
 
 void Video::clearWindow(void){
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void Video::updateWindow(void){
-    glfwSwapBuffers(this->m_window);
+    SDL_GL_SwapWindow(this->m_window);
 }
 
-GLFWwindow * Video::getWindow(void){
-    return this->m_window;
+void Video::setBackgroundColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a){
+    this->m_background_color = { r, g, b, a };
 }
 
 Video::Video(void){
-    if(glfwInit()){
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPEN_GL_MAJOR_VERSION);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPEN_GL_MINOR_VERSION);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#ifdef __APPLE__ 
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (SDL_InitSubSystem(SDL_INIT_VIDEO) == 0) {
+        SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, OPEN_GL_MAJOR_VERSION ); 
+        SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, OPEN_GL_MINOR_VERSION ); 
+        SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+        this->m_screen_width = 0;
+        this->m_screen_height = 0;
+        this->m_background_color = { 255, 255, 255, 255 };
     } else {
-        // ERROR - glfwInit unable to initialize.
+        // error
     }
 }
