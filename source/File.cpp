@@ -13,20 +13,6 @@ File * File::getSingleton(void){
     return m_singleton;
 }
 
-std::string File::readShader(const char * path){
-    std::fstream file;
-    file.open(path, std::fstream::in);
-    std::string line = "", doc = "";
-    if (file.is_open()) {
-        do {
-            std::getline(file, line);
-            doc += line + "\n";
-        } while (!file.eof());
-        file.close();
-    }
-    return (doc + "\0");
-}
-
 std::string File::readAllText(const char * path){
     std::fstream file;
     file.open(path, std::fstream::in);
@@ -34,7 +20,7 @@ std::string File::readAllText(const char * path){
     if (file.is_open()) {
         do {
             std::getline(file, line);
-            doc += line;
+            doc += line + "\n";
         } while (!file.eof());
         file.close();
     }
