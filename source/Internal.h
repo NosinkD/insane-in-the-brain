@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <windows.h>
 #include <fstream>
+#include <cstring>
 
 // SDL & Glew Includes
 #include <SDL2/SDL.h>
