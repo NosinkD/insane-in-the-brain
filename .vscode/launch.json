@@ -24,6 +24,27 @@
                 }
             ],
             "preLaunchTask": "g++ Win x86"
+        },
+        {
+            "name": "(gdb) Debug l_x86",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/x86/debug/main.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ Linux x86"
         }
     ]
 }

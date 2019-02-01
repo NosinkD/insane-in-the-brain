@@ -21,10 +21,28 @@
             ],
             "defines": [
                 "_DEBUG",
-                "UNICODE"
+                "UNICODE",
+                "_WINDOWS"
             ],
             "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
             "intelliSenseMode": "msvc-x64"
+        },
+        {
+            "name": "l_x86",
+            "includePath": [
+                "/usr/include",
+                "/usr/include/c++/8.2.1",
+                "/usr/include/c++/8.2.1/bits",
+                "${workspaceFolder}/source",
+                "${workspaceFolder}/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_LINUX"
+            ],
+            "compilerPath": "usr/bin/gcc",
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4

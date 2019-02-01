@@ -1,28 +1,27 @@
 CC = gcc
 CXX = g++
 
-INCLUDES = -I$(project_inc)
-LIBRARIES = -L$(project_lib_x86)
+W_INCLUDES = -I$(w_project_inc)
+L_INCLUDES = -I$(l_project_inc)
 
-project_inc = C:/Users/Genesis/Desktop/insane-in-the-brain-repo/include
-project_lib_x86 = C:/Users/Genesis/Desktop/insane-in-the-brain-repo/lib/x86/debug
+W_LIBRARIES = -L$(w_project_lib_x86)
+L_LIBRARIES = -L$(l_project_lib_x86)
 
-sdl2 = C:/Users/Genesis/Desktop/insane-in-the-brain-repo
-sdl2_inc = $(sdl2)/include
-sdl2_lib_x86 = $(sdl2)/lib/x86/debug
+w_project_inc = C:/Users/Genesis/Desktop/insane-in-the-brain-repo/include
+l_project_inc = /usr/include
 
-sdl2_image = C:/Users/Genesis/Desktop/insane-in-the-brain-repo
-sdl2_image_inc = $(sdl2_image)/include
-sdl2_image_lib_x86 = $(sdl2_image)/lib/x86/debug
+w_project_lib_x86 = C:/Users/Genesis/Desktop/insane-in-the-brain-repo/lib/x86/debug
+l_project_lib_x86 = /usr/lib32
 
-glad = C:/Users/Genesis/Desktop/insane-in-the-brain-repo
-glad_inc = $(glad)/include
+CFLAGS = -Wall -g $(W_INCLUDES)
+CXXFLAGS = -std=c++14 -Wall -g -w -Wl,-subsystem,windows $(W_INCLUDES)
 
-CFLAGS = -Wall -g $(INCLUDES)
-CXXFLAGS = -std=c++14 -Wall -g -w -Wl,-subsystem,windows $(INCLUDES)
-LDFLAGS = $(LIBRARIES) -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lglew32
+W_LDFLAGS = $(W_LIBRARIES) -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lglew32
+L_LDFLAGS = $(L_LIBRARIES) -lSDL2main -lSDL2 -lSDL2_image -lOpenGL -lGLEW
 
-TARGET = ./build/x86/debug/main.exe
+W_TARGET = ./build/x86/debug/main.exe
+
+L_TARGET = ./build/x86/debug/main.out
 
 cpp_files = ./source/main.cpp
 cpp_files += ./source/Director.cpp
@@ -38,10 +37,16 @@ cpp_files += ./source/File.cpp
 objects = $(cpp_files:.cpp=.o)
 headers =
 
-w_x86: $(TARGET)
+w_x86: $(W_TARGET)
 
-$(TARGET): $(objects) 
-	$(CXX) -o $@ $^ $(LDFLAGS)
+l_x86: $(L_TARGET)
+
+$(L_TARGET) : $(objects) 
+	$(CXX) -o $@ $^ $(L_LDFLAGS)
+	make clean
+
+$(W_TARGET): $(objects) 
+	$(CXX) -o $@ $^ $(W_LDFLAGS)
 	make clean
 
 .PHONY : clean
