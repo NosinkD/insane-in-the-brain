@@ -12,7 +12,6 @@
 #include <memory>
 #include <stdio.h>
 #include <algorithm>
-#include <windows.h>
 #include <fstream>
 #include <cstring>
 
