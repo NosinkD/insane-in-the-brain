@@ -1,8 +1,8 @@
 #ifndef INTERNAL_H
 #define INTERNAL_H
 
-#define OPEN_GL_MAJOR_VERSION 4
-#define OPEN_GL_MINOR_VERSION 3
+#define OPEN_GL_MAJOR_VERSION 4.6
+#define OPEN_GL_MINOR_VERSION 3.2
 
 // C++ STD Includes
 #include <string>
