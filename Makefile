@@ -13,8 +13,8 @@ l_project_inc = /usr/include
 w_project_lib_x86 = C:/Users/Genesis/Desktop/insane-in-the-brain-repo/lib/x86/debug
 l_project_lib_x86 = /usr/lib32
 
-CFLAGS = -Wall -g $(W_INCLUDES)
-CXXFLAGS = -std=c++14 -Wall -g -w -Wl,-subsystem,windows $(W_INCLUDES)
+CFLAGS = -Wall -g $(L_INCLUDES)
+CXXFLAGS = -std=c++14 -Wall -g -w -Wl,-subsystem,windows $(L_INCLUDES)
 
 W_LDFLAGS = $(W_LIBRARIES) -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lglew32
 L_LDFLAGS = $(L_LIBRARIES) -lSDL2main -lSDL2 -lSDL2_image -lOpenGL -lGLEW
