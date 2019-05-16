@@ -4,7 +4,7 @@
 #include "Internal.h"
 
 enum button_state {
-    pressed = SDL_PRESSED, released = SDL_RELEASED
+    pressed = SDL_PRESSED, released = SDL_RELEASED, waiting_state = -1
 };
 
 enum keyboard_key {
@@ -18,6 +18,7 @@ struct Key {
     button_state state;
     Key(SDL_Scancode scancode) {
         this->scancode = scancode;
+        this->state = waiting_state;
     }
 };
 
