@@ -1,23 +1,37 @@
+# Compiler
+CXX = g++
+# Compiler Flags
+CXXFLAGS = -std=c++14 -g -Wall -Werror -Wl,-subsystem,windows
 
-CXXFLAGS = -std=c++14 -g -Wall -Werror -w -Wl,-subsystem,windows
-TARGET = main.exe
+# Directories
+SRC_DIR = source
+DEBUG_BUILD_x86_DIR = build/x86/debug
 
-FILES_C = $(shell ls source)
-FILES_O = $(subst .c,.o,$(FILES_C))
+# Files
+CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+DEBUG_OBJ_x86_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(DEBUG_BUILD_x86_DIR)/%.o,$(CPP_FILES))
 
-# Objetivo general
-default: $(TARGET)
+# Windows
+W_INCLUDES = -IC:/Users/Genesis/Desktop/insane-in-the-brain-repo/include
+# Windows x86 
+DEBUG_W_x86_TARGET = main_debug.exe
+DEBUG_W_x86_LIBRARIES = -LC:/Users/Genesis/Desktop/insane-in-the-brain-repo/lib/x86/debug
+DEBUG_W_x86_LDFLAGS = $(DEBUG_W_x86_LIBRARIES) -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lglew32
 
-# Regla implicita: como generar ficheros .o a partir de .c
-%.o: %.c Makefile 
-	gcc $(CXXFLAGS) -c $< -o $@
+# Objects
+w_debug_x86: $(DEBUG_W_x86_TARGET)
 
-# Generacion del ejecutable
-$(TARGET): %.c %.o Makefile
-	gcc main.o libmyutils.a -o $(TARGET) -lm
+# *.o files rule generator from *.cpp for w_debug_x86
+$(DEBUG_BUILD_x86_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) $(W_INCLUDES) -c $< -o $@
 
-# Borrar ficheros
+# Application rule generator for w_debug_x86
+$(DEBUG_W_x86_TARGET): $(DEBUG_OBJ_x86_FILES)
+	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/$@ $^ $(DEBUG_W_x86_LDFLAGS)
+
+# Clear all generated files
 clean:
-	/bin/rm -f *.o libmyutils.a $(TARGET)
+	rm $(DEBUG_OBJ_x86_FILES)
+
 
 
