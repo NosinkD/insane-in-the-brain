@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "make",
             "args": [
-                "w_x86"
+                "w_debug_x86"
             ],
             "group": {
                 "kind": "build",
@@ -20,7 +20,7 @@
             "type": "shell",
             "command": "make",
             "args": [
-                "l_x86"
+                "l_debug_x86"
             ],
             "group": {
                 "kind": "build",

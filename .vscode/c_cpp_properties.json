@@ -24,8 +24,7 @@
                 "UNICODE",
                 "_WINDOWS"
             ],
-            "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
-            "intelliSenseMode": "msvc-x64"
+            "compilerPath": "C:\\MinGW\\bin\\gcc.exe"
         },
         {
             "name": "l_x86",
@@ -42,7 +41,6 @@
                 "_LINUX"
             ],
             "compilerPath": "usr/bin/gcc",
-            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4
