@@ -32,7 +32,7 @@
 *.app
 
 # vscode ipch folder
-/.vscode/ipch/
+.vscode/ipch
 
 # Custom Files
 desktop.ini
