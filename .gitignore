@@ -30,9 +30,3 @@
 *.exe
 *.out
 *.app
-
-# vscode ipch folder
-.vscode/ipch
-
-# Custom Files
-desktop.ini

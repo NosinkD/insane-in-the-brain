@@ -3,8 +3,10 @@
 #include "Video.h"
 #include "Input.h"
 
+// Include Scenes
 #include "Demo.h"
 
+// Define Scenes
 #define DEMO_SCENE 0
 
 Video * sVideo;
