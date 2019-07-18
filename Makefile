@@ -20,7 +20,7 @@ DEBUG_L_X86_LDFLAGS = $(DEBUG_L_x86_LIBRARIES) -lSDL2main -lSDL2 -lSDL2_image -l
 
 # Application rule generator for L_debug_x86
 l_debug_x86: $(DEBUG_OBJ_x86_FILES)
-	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/$(DEBUG_L_X86_TARGET) $^ $(DEBUG_L_x86_LDFLAGS)
+	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/$(DEBUG_L_X86_TARGET) $(DEBUG_L_x86_LDFLAGS) $^
 
 # Windows
 W_INCLUDES = -IC:/Users/Genesis/Desktop/insane-in-the-brain-repo/include
@@ -36,7 +36,7 @@ w_debug_x86: $(DEBUG_OBJ_x86_FILES)
 # Compilation
 # *.o files rule generator from *.cpp for w_debug_x86
 $(DEBUG_BUILD_x86_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) $(W_INCLUDES) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(L_INCLUDES) -c $< -o $@
 
 # Clear all generated files
 clean:
