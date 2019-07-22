@@ -3,7 +3,10 @@
 
 #include "Internal.h"
 
+// Components
+#include "Camera.h"
 #include "Transform.h"
+#include "AudioSource.h"
 #include "SpriteRenderer.h"
 
 class GameObject {
