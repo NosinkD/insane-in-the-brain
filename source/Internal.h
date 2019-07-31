@@ -1,8 +1,13 @@
 #ifndef INTERNAL_H
 #define INTERNAL_H
 
+// OpenGL Defines
 #define OPEN_GL_MAJOR_VERSION 4.6
 #define OPEN_GL_MINOR_VERSION 3.2
+
+// Engine Defines
+#define _DEBUG
+#define _LINUX
 
 // C++ STD Includes
 #include <string>
