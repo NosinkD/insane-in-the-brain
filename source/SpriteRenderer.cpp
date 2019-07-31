@@ -89,6 +89,8 @@ SpriteRenderer::SpriteRenderer(void):Component(){
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0); 
 
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 }
 
 SpriteRenderer::~SpriteRenderer(void){
