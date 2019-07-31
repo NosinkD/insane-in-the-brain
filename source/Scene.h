@@ -1,9 +1,9 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-
 #include "Internal.h"
 #include "Input.h"
+#include "Log.h"
 
 class Scene {
 
@@ -27,6 +27,7 @@ protected:
 
     virtual void input(void);
 
+    Log * m_log;
     Input * m_input;
 
 private:
