@@ -9,7 +9,8 @@ Demo::~Demo(void){
 }
 
 void Demo::load(void){
-
+    this->m_log->report(Log::SCENE, "Demo loaded.");
+    std::cout << this->m_log->getLast();
 }
 
 void Demo::update(void){
