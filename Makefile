@@ -25,9 +25,9 @@ l_debug_x86: $(DEBUG_OBJ_x86_FILES)
 	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/main.out $(DEBUG_L_X86_LIBRARIES) $^
 
 # Windows
-W_INCLUDES = -IC:/Users/Genesis/Desktop/insane-in-the-brain-repo/include
+W_INCLUDES = -I./include
 # Windows x86 
-DEBUG_W_x86_LIBRARIES = -LC:/Users/Genesis/Desktop/insane-in-the-brain-repo/lib/x86/debug 
+DEBUG_W_x86_LIBRARIES = -L./lib/x86/debug 
 DEBUG_W_x86_LIBRARIES += -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lglew32
 
 # Application rule generator for w_debug_x86
@@ -38,6 +38,9 @@ w_debug_x86: $(DEBUG_OBJ_x86_FILES)
 INCLUDES =
 ifeq ($(OS),linux)
 	INCLUDES = $(L_INCLUDES)
+endif
+ifeq ($(OS), msys_nt-10.0)
+	INCLUDES = $(W_INCLUDES)
 endif
 
 # *.o files rule generator from *.cpp for w_debug_x86
