@@ -32,7 +32,7 @@ DEBUG_W_x86_LIBRARIES += -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lopengl32 -lg
 
 # Application rule generator for w_debug_x86
 w_debug_x86: $(DEBUG_OBJ_x86_FILES)
-	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/main.exe $(DEBUG_W_x86_LIBRARIES) $^
+	$(CXX) -o $(DEBUG_BUILD_x86_DIR)/main.exe $^ $(DEBUG_W_x86_LIBRARIES)
 
 # Compilation
 INCLUDES =
