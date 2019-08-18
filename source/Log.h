@@ -2,8 +2,8 @@
 #define LOG_H
 
 #include "Internal.h"
+
 #include "File.h"
-#include "Time.h"
 
 class Log {
 
@@ -38,9 +38,16 @@ private:
 
     Log::Report format(Log::Type type, std::string message);
 
+    void updateTime(void);
+    std::string getTime(void);
+
     std::vector<Log::Report> m_log;
+
     File * m_file;
-    Time * m_time;
+
+    time_t m_now;
+    struct tm m_tstruct;
+    char m_buf[10];
 
 };
 
