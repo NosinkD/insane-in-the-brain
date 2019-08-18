@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <fstream>
 #include <cstring>
+#include <time.h>
 #include <ctime>
 
 // SDL & Glew Includes
