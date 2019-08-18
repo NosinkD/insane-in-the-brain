@@ -47,7 +47,11 @@
         "ratio": "cpp",
         "string_view": "cpp",
         "cinttypes": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp"
     },
     "editor.fontSize": 13,
     "editor.renderWhitespace": "all",
